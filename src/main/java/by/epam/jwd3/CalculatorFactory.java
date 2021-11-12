@@ -1,11 +1,18 @@
 package by.epam.jwd3;
 
 public class CalculatorFactory {
-    /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: by.htp.jaxbex
-     *
-     */
-    public CalculatorFactory() {
+
+    private static final CalculatorFactory calculatorFactory = new CalculatorFactory();
+    private final Calculator integerCalculator = new IntegerCalculator();
+
+    private CalculatorFactory() {
     }
 
+    public Calculator getCalculator() {
+        return integerCalculator;
+    }
+
+    public static CalculatorFactory getInstance() {
+        return calculatorFactory;
+    }
 }
